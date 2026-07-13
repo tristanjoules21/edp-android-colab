@@ -23,6 +23,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Activity1"
+            android:exported="true"
+            android:label="Business Card"
+            android:theme="@style/Theme.MyApplication" />
     </application>
 
 </manifest>
