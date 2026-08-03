@@ -1,0 +1,193 @@
+Index: app/src/main/java/com/example/myapplication/ProfileScreen.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.myapplication\r\n\r\nimport android.content.res.Configuration\r\nimport androidx.compose.foundation.background\r\nimport androidx.compose.foundation.border\r\nimport androidx.compose.foundation.layout.*\r\nimport androidx.compose.foundation.shape.CircleShape\r\nimport androidx.compose.material.icons.Icons\r\nimport androidx.compose.material.icons.filled.Class\r\nimport androidx.compose.material.icons.filled.Email\r\nimport androidx.compose.material.icons.filled.Person\r\nimport androidx.compose.material.icons.filled.Phone\r\nimport androidx.compose.material.icons.filled.School\r\nimport androidx.compose.material3.*\r\nimport androidx.compose.runtime.Composable\r\nimport androidx.compose.ui.Alignment\r\nimport androidx.compose.ui.Modifier\r\nimport androidx.compose.ui.draw.clip\r\nimport androidx.compose.ui.graphics.vector.ImageVector\r\nimport androidx.compose.ui.text.font.FontWeight\r\nimport androidx.compose.ui.tooling.preview.Preview\r\nimport androidx.compose.ui.unit.dp\r\nimport com.example.myapplication.ui.theme.ProfileTheme\r\n\r\n@OptIn(ExperimentalMaterial3Api::class)\r\n@Composable\r\nfun ProfileScreen() {\r\n\r\n    Scaffold(\r\n        topBar = {\r\n            TopAppBar(\r\n                title = {\r\n                    Text(\"My Profile\")\r\n                }\r\n            )\r\n        }\r\n    ) { padding ->\r\n\r\n        Column(\r\n            modifier = Modifier\r\n                .fillMaxSize()\r\n                .padding(padding)\r\n                .padding(24.dp),\r\n            verticalArrangement = Arrangement.Center,\r\n            horizontalAlignment = Alignment.CenterHorizontally\r\n        ) {\r\n\r\n            Box(\r\n                modifier = Modifier\r\n                    .size(120.dp)\r\n                    .clip(CircleShape)\r\n                    .background(MaterialTheme.colorScheme.primary)\r\n                    .border(\r\n                        width = 2.dp,\r\n                        color = MaterialTheme.colorScheme.onPrimary,\r\n                        shape = CircleShape\r\n                    ),\r\n                contentAlignment = Alignment.Center\r\n            ) {\r\n\r\n                Text(\r\n                    text = \"HA\",\r\n                    style = MaterialTheme.typography.headlineSmall,\r\n                    color = MaterialTheme.colorScheme.onPrimary,\r\n                    fontWeight = FontWeight.Bold\r\n                )\r\n            }\r\n\r\n            Spacer(modifier = Modifier.height(16.dp))\r\n\r\n            Text(\r\n                text = \"HANS JERALD A. AVILA\",\r\n                style = MaterialTheme.typography.headlineSmall,\r\n                fontWeight = FontWeight.Bold,\r\n                color = MaterialTheme.colorScheme.primary\r\n            )\r\n\r\n            Spacer(modifier = Modifier.height(8.dp))\r\n\r\n            Text(\r\n                text = \"BS Information Technology | BSIT 3-2\",\r\n                style = MaterialTheme.typography.titleMedium,\r\n                color = MaterialTheme.colorScheme.secondary\r\n            )\r\n\r\n            Spacer(modifier = Modifier.height(24.dp))\r\n\r\n            Card(\r\n                modifier = Modifier\r\n                    .fillMaxWidth()\r\n                    .padding(horizontal = 24.dp)\r\n            ) {\r\n\r\n                Column(\r\n                    modifier = Modifier.padding(16.dp)\r\n                ) {\r\n\r\n                    InfoRow(\r\n                        icon = Icons.Default.Person,\r\n                        label = \"Full Name\",\r\n                        value = \"Hans Jerald A. Avila\"\r\n                    )\r\n\r\n                    InfoRow(\r\n                        icon = Icons.Default.School,\r\n                        label = \"Course\",\r\n                        value = \"Bachelor of Science in Information Technology\"\r\n                    )\r\n\r\n                    InfoRow(\r\n                        icon = Icons.Default.Class,\r\n                        label = \"Section\",\r\n                        value = \"BSIT 3-2\"\r\n                    )\r\n\r\n                    InfoRow(\r\n                        icon = Icons.Default.Phone,\r\n                        label = \"Mobile Number\",\r\n                        value = \"09XXXXXXXXX\"\r\n                    )\r\n\r\n                    InfoRow(\r\n                        icon = Icons.Default.Email,\r\n                        label = \"Email Address\",\r\n                        value = \"your_email@gmail.com\"\r\n                    )\r\n                }\r\n            }\r\n        }\r\n    }\r\n}\r\n\r\n@Composable\r\nfun InfoRow(\r\n    icon: ImageVector,\r\n    label: String,\r\n    value: String\r\n) {\r\n\r\n    Row(\r\n        modifier = Modifier\r\n            .fillMaxWidth()\r\n            .padding(vertical = 8.dp),\r\n        verticalAlignment = Alignment.CenterVertically\r\n    ) {\r\n\r\n        Icon(\r\n            imageVector = icon,\r\n            contentDescription = label,\r\n            tint = MaterialTheme.colorScheme.primary\r\n        )\r\n\r\n        Spacer(modifier = Modifier.width(16.dp))\r\n\r\n        Column(\r\n            modifier = Modifier.weight(1f)\r\n        ) {\r\n\r\n            Text(\r\n                text = label,\r\n                style = MaterialTheme.typography.labelMedium,\r\n                color = MaterialTheme.colorScheme.onSurfaceVariant\r\n            )\r\n\r\n            Text(\r\n                text = value,\r\n                style = MaterialTheme.typography.bodyLarge,\r\n                color = MaterialTheme.colorScheme.onSurface\r\n            )\r\n        }\r\n    }\r\n}\r\n\r\n@Preview(showBackground = true)\r\n@Composable\r\nfun LightPreview() {\r\n    ProfileTheme(darkTheme = false) {\r\n        Surface(\r\n            color = MaterialTheme.colorScheme.background\r\n        ) {\r\n            ProfileScreen()\r\n        }\r\n    }\r\n}\r\n\r\n@Preview(\r\n    showBackground = true,\r\n    uiMode = Configuration.UI_MODE_NIGHT_YES\r\n)\r\n@Composable\r\nfun DarkPreview() {\r\n    ProfileTheme(darkTheme = true) {\r\n        Surface(\r\n            color = MaterialTheme.colorScheme.background\r\n        ) {\r\n            ProfileScreen()\r\n        }\r\n    }\r\n}
+===================================================================
+diff --git a/app/src/main/java/com/example/myapplication/ProfileScreen.kt b/app/src/main/java/com/example/myapplication/ProfileScreen.kt
+--- a/app/src/main/java/com/example/myapplication/ProfileScreen.kt	(revision 86ccb4b394bbfc10aad7839fc8fdd850cfcb0859)
++++ b/app/src/main/java/com/example/myapplication/ProfileScreen.kt	(date 1785290735377)
+@@ -5,10 +5,11 @@
+ import androidx.compose.foundation.border
+ import androidx.compose.foundation.layout.*
+ import androidx.compose.foundation.shape.CircleShape
++import androidx.compose.foundation.shape.RoundedCornerShape
+ import androidx.compose.material.icons.Icons
+-import androidx.compose.material.icons.filled.Class
++import androidx.compose.material.icons.filled.Badge
+ import androidx.compose.material.icons.filled.Email
+-import androidx.compose.material.icons.filled.Person
++import androidx.compose.material.icons.filled.Groups
+ import androidx.compose.material.icons.filled.Phone
+ import androidx.compose.material.icons.filled.School
+ import androidx.compose.material3.*
+@@ -41,7 +42,6 @@
+                 .fillMaxSize()
+                 .padding(padding)
+                 .padding(24.dp),
+-            verticalArrangement = Arrangement.Center,
+             horizontalAlignment = Alignment.CenterHorizontally
+         ) {
+ 
+@@ -51,78 +51,76 @@
+                     .clip(CircleShape)
+                     .background(MaterialTheme.colorScheme.primary)
+                     .border(
+-                        width = 2.dp,
+-                        color = MaterialTheme.colorScheme.onPrimary,
++                        width = 4.dp,
++                        color = MaterialTheme.colorScheme.primaryContainer,
+                         shape = CircleShape
+                     ),
+                 contentAlignment = Alignment.Center
+             ) {
+-
+                 Text(
+-                    text = "HA",
+-                    style = MaterialTheme.typography.headlineSmall,
++                    text = "TP",
++                    style = MaterialTheme.typography.displaySmall,
+                     color = MaterialTheme.colorScheme.onPrimary,
+                     fontWeight = FontWeight.Bold
+                 )
+             }
+ 
+-            Spacer(modifier = Modifier.height(16.dp))
++            Spacer(modifier = Modifier.height(24.dp))
+ 
+             Text(
+-                text = "HANS JERALD A. AVILA",
++                text = "TRISTAN JOULES C. PAHAYAHAY",
+                 style = MaterialTheme.typography.headlineSmall,
+                 fontWeight = FontWeight.Bold,
+                 color = MaterialTheme.colorScheme.primary
+             )
+ 
+-            Spacer(modifier = Modifier.height(8.dp))
+-
+             Text(
+-                text = "BS Information Technology | BSIT 3-2",
++                text = "BS Information Technology | 3-1",
+                 style = MaterialTheme.typography.titleMedium,
+                 color = MaterialTheme.colorScheme.secondary
+             )
+ 
+-            Spacer(modifier = Modifier.height(24.dp))
++            Spacer(modifier = Modifier.height(32.dp))
+ 
+             Card(
+-                modifier = Modifier
+-                    .fillMaxWidth()
+-                    .padding(horizontal = 24.dp)
++                modifier = Modifier.fillMaxWidth(),
++                shape = RoundedCornerShape(16.dp),
++                elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+             ) {
+ 
+                 Column(
+-                    modifier = Modifier.padding(16.dp)
++                    modifier = Modifier.padding(16.dp),
++                    verticalArrangement = Arrangement.spacedBy(12.dp)
+                 ) {
+ 
+                     InfoRow(
+-                        icon = Icons.Default.Person,
++                        icon = Icons.Default.Badge,
+                         label = "Full Name",
+-                        value = "Hans Jerald A. Avila"
++                        value = "Tristan Joules C. Pahayahay"
+                     )
+ 
+                     InfoRow(
+                         icon = Icons.Default.School,
+                         label = "Course",
+-                        value = "Bachelor of Science in Information Technology"
++                        value = "BS Information Technology"
+                     )
+ 
+                     InfoRow(
+-                        icon = Icons.Default.Class,
++                        icon = Icons.Default.Groups,
+                         label = "Section",
+-                        value = "BSIT 3-2"
++                        value = "3-1"
+                     )
+ 
+                     InfoRow(
+                         icon = Icons.Default.Phone,
+-                        label = "Mobile Number",
+-                        value = "09XXXXXXXXX"
++                        label = "Mobile No.",
++                        value = "+63 912 345 6789"
+                     )
+ 
+                     InfoRow(
+                         icon = Icons.Default.Email,
+-                        label = "Email Address",
+-                        value = "your_email@gmail.com"
++                        label = "Email",
++                        value = "tristanjoules@gmail.com"
+                     )
+                 }
+             }
+@@ -140,14 +138,15 @@
+     Row(
+         modifier = Modifier
+             .fillMaxWidth()
+-            .padding(vertical = 8.dp),
++            .padding(vertical = 4.dp),
+         verticalAlignment = Alignment.CenterVertically
+     ) {
+ 
+         Icon(
+             imageVector = icon,
+             contentDescription = label,
+-            tint = MaterialTheme.colorScheme.primary
++            tint = MaterialTheme.colorScheme.primary,
++            modifier = Modifier.size(24.dp)
+         )
+ 
+         Spacer(modifier = Modifier.width(16.dp))
+@@ -165,7 +164,7 @@
+             Text(
+                 text = value,
+                 style = MaterialTheme.typography.bodyLarge,
+-                color = MaterialTheme.colorScheme.onSurface
++                fontWeight = FontWeight.Medium
+             )
+         }
+     }
+Index: .idea/deploymentTargetSelector.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"deploymentTargetSelector\">\r\n    <selectionStates>\r\n      <SelectionState runConfigName=\"app\">\r\n        <option name=\"selectionMode\" value=\"DROPDOWN\" />\r\n        <DialogSelection />\r\n      </SelectionState>\r\n      <SelectionState runConfigName=\"BusinessCardLargeFontPreview\">\r\n        <option name=\"selectionMode\" value=\"DROPDOWN\" />\r\n        <DialogSelection />\r\n      </SelectionState>\r\n      <SelectionState runConfigName=\"BusinessCardDarkPreview\">\r\n        <option name=\"selectionMode\" value=\"DROPDOWN\" />\r\n        <DialogSelection />\r\n      </SelectionState>\r\n      <SelectionState runConfigName=\"BusinessCardPreview\">\r\n        <option name=\"selectionMode\" value=\"DROPDOWN\" />\r\n        <DialogSelection />\r\n      </SelectionState>\r\n      <SelectionState runConfigName=\"BusinessCardLightPreview\">\r\n        <option name=\"selectionMode\" value=\"DROPDOWN\" />\r\n        <DialogSelection />\r\n      </SelectionState>\r\n      <SelectionState runConfigName=\"MainActivity\">\r\n        <option name=\"selectionMode\" value=\"DROPDOWN\" />\r\n        <DialogSelection />\r\n      </SelectionState>\r\n    </selectionStates>\r\n  </component>\r\n</project>
+===================================================================
+diff --git a/.idea/deploymentTargetSelector.xml b/.idea/deploymentTargetSelector.xml
+--- a/.idea/deploymentTargetSelector.xml	(revision 86ccb4b394bbfc10aad7839fc8fdd850cfcb0859)
++++ b/.idea/deploymentTargetSelector.xml	(date 1785134083094)
+@@ -6,23 +6,19 @@
+         <option name="selectionMode" value="DROPDOWN" />
+         <DialogSelection />
+       </SelectionState>
+-      <SelectionState runConfigName="BusinessCardLargeFontPreview">
+-        <option name="selectionMode" value="DROPDOWN" />
+-        <DialogSelection />
+-      </SelectionState>
+       <SelectionState runConfigName="BusinessCardDarkPreview">
+         <option name="selectionMode" value="DROPDOWN" />
+         <DialogSelection />
+       </SelectionState>
+-      <SelectionState runConfigName="BusinessCardPreview">
++      <SelectionState runConfigName="BusinessCardLightPreview">
+         <option name="selectionMode" value="DROPDOWN" />
+         <DialogSelection />
+       </SelectionState>
+-      <SelectionState runConfigName="BusinessCardLightPreview">
++      <SelectionState runConfigName="MainActivity">
+         <option name="selectionMode" value="DROPDOWN" />
+         <DialogSelection />
+       </SelectionState>
+-      <SelectionState runConfigName="MainActivity">
++      <SelectionState runConfigName="MainActivity (1)">
+         <option name="selectionMode" value="DROPDOWN" />
+         <DialogSelection />
+       </SelectionState>
