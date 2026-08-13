@@ -2,25 +2,25 @@ package com.example.myapplication.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-// Simple Bright Palette (White with Maroon and Gold accents)
-val PrimaryLight = Color(0xFF800000) // Maroon
+// Pink Theme Palette
+val PrimaryLight = Color(0xFFE91E63) // Pink 500
 val OnPrimaryLight = Color(0xFFFFFFFF)
-val PrimaryContainerLight = Color(0xFFFFD700) // Gold
-val OnPrimaryContainerLight = Color(0xFF332B00)
+val PrimaryContainerLight = Color(0xFFF8BBD0) // Pink 100
+val OnPrimaryContainerLight = Color(0xFF880E4F) // Pink 900
 
-val SecondaryLight = Color(0xFFF5F5F5) // Very Light Grey
+val SecondaryLight = Color(0xFFF5F5F5) 
 val OnSecondaryLight = Color(0xFF000000)
 
-val BackgroundLight = Color(0xFFFFFFFF) // Pure White
+val BackgroundLight = Color(0xFFFFFFFF)
 val SurfaceLight = Color(0xFFFFFFFF)
 val OnSurfaceLight = Color(0xFF000000)
 val OnSurfaceVariantLight = Color(0xFF757575)
 
-// Dark Version
-val PrimaryDark = Color(0xFFFFB4AB)
-val OnPrimaryDark = Color(0xFF690005)
-val PrimaryContainerDark = Color(0xFF93000A)
-val OnPrimaryContainerDark = Color(0xFFFFFFFF)
+// Dark Version (Pink variants)
+val PrimaryDark = Color(0xFFFFB2C1)
+val OnPrimaryDark = Color(0xFF660022)
+val PrimaryContainerDark = Color(0xFF920036)
+val OnPrimaryContainerDark = Color(0xFFFFD9DF)
 val SecondaryDark = Color(0xFF212121)
 val BackgroundDark = Color(0xFF121212)
 val SurfaceDark = Color(0xFF121212)

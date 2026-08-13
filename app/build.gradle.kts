@@ -55,6 +55,10 @@ dependencies {
     
     implementation("androidx.navigation:navigation-compose:2.8.5")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
+    
+    val lifecycleVersion = "2.10.0"
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycleVersion")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:$lifecycleVersion")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
